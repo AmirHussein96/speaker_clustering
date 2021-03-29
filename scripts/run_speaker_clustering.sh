@@ -9,7 +9,7 @@ stage=2
 #DATA_PATH=$PWD'/sample_data/segmented_data'
 DATA_PATH=$1
 echo $DATA_PATH
-
+num_spk=$2
 TOTAL_SPLIT=1
 #Split data folder into multiple chunk
 #if [ $stage -eq 1 ]; then
@@ -50,7 +50,7 @@ fi
 if [ $stage -le 3 ]; then
 
 python ./src/spk_clustering.py \
-      --max_spks 20 \
+      --max_spks $num_spk \
       --data_folder $DATA_PATH \
       --total_split $TOTAL_SPLIT \
       --embedding_folder exp/embeddings \
