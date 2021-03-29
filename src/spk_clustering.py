@@ -74,7 +74,8 @@ for iter in range(len(np.unique(uttid))):
 
         X = mat[idx,:]
         # print('Shape: ', X.shape)
-        clustering = AgglomerativeClustering(distance_threshold=0.7, n_clusters=None, affinity='cosine', linkage='average').fit(X)
+        #clustering = AgglomerativeClustering(distance_threshold=0.7, n_clusters=None, affinity='cosine', linkage='average').fit(X)
+        clustering = AgglomerativeClustering(n_clusters=max_spks, affinity='cosine', linkage='average').fit(X)
         clusters = clustering.labels_
         # print(clusters)
 
